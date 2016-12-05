@@ -65,6 +65,13 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     
+    /******** Set Usertoken and username for request 
+     *
+     * self.authModel.userName
+     *
+     * self.authModel.userToken
+     *
+     **********/
     NSDictionary *params = @{@"userToken":self.authModel.userName, @"userName":self.authModel.userToken};
     
     [manager GET:serverDataUrl parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
